@@ -1,16 +1,17 @@
-cmake_minimum_required(VERSION 3.10)
-project(E6AMS_Bootloader C)
+cmake_minimum_required(VERSION 3.6)
+project(E6AMS_Bootloader)
 
 set(CMAKE_C_STANDARD 11)
 
 SET(MCU "atmega2560")
 SET(F_CPU "16000000")
+SET(BOOTSTART "0x3E000")
 
 SET(CMAKE_C_COMPILER avr-gcc)
 SET(CMAKE_CXX_COMPILER avr-g++)
 
 SET(CMAKE_C_FLAGS "-mmcu=${MCU} -DF_CPU=${F_CPU} -Os -Wall -Wextra -Werror -Wno-unused-function")
-SET(CMAKE_C_LINK_FLAGS "-mmcu=${MCU}")
+SET(CMAKE_C_LINK_FLAGS "-mmcu=${MCU} -Wl,--section-start=.text=${BOOTSTART}")
 
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -s")
