@@ -10,7 +10,7 @@ SET(BOOTSTART "0x3E000")
 SET(CMAKE_C_COMPILER avr-gcc)
 SET(CMAKE_CXX_COMPILER avr-g++)
 
-SET(CMAKE_C_FLAGS "-mmcu=${MCU} -DF_CPU=${F_CPU} -Os -Wall -Wextra -Werror -Wno-unused-function")
+SET(CMAKE_C_FLAGS "-mmcu=${MCU} -DF_CPU=${F_CPU} -Os -Wall -Wextra -Werror -Wno-unused-function -Wno-unknown-pragmas -Wno-unused-parameter")
 SET(CMAKE_C_LINK_FLAGS "-mmcu=${MCU} -Wl,--section-start=.text=${BOOTSTART}")
 
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -s")
@@ -20,6 +20,14 @@ SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES
+        main.c
+        Drivers/hm-10.c
+        Drivers/uart.c
+        external_libs/md5.c
+        Frames/appFrame.c
+        Frames/dllFrame.c
+        Layers/appLayer.c
+        Layers/dllLayer.c)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
