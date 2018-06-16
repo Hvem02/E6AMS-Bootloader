@@ -22,12 +22,12 @@ SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
 set(SOURCE_FILES
         main.c
-        Drivers/hm-10.c
-        Drivers/uart.c
-        external_libs/md5.c
-        Frames/appFrame.c
-        Frames/dllFrame.c
-        Layers/appLayer.c
-        Layers/dllLayer.c)
+        mainProject/Drivers/hm-10.c
+        mainProject/Drivers/uart.c
+        mainProject/external_libs/md5.c
+        mainProject/Frames/appFrame.c
+        mainProject/Frames/dllFrame.c
+        mainProject/Layers/appLayer.c
+        mainProject/Layers/dllLayer.c)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

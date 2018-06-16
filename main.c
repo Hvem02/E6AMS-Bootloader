@@ -4,10 +4,10 @@
 #include <stdint-gcc.h>
 #include <util/delay.h>
 
-#include "Drivers/hm-10.h"
-#include "Layers/appLayer.h"
-#include "Layers/dllLayer.h"
-#include "Frames/appFrame.h"
+#include "mainProject/Drivers/hm-10.h"
+#include "mainProject/Layers/appLayer.h"
+#include "mainProject/Layers/dllLayer.h"
+#include "mainProject/Frames/appFrame.h"
 
 #define SEGMENT_PR_PAGE 4
 #define SEMENT_SIZE     64
@@ -33,7 +33,7 @@ int main()
     sei();
     hm10Init(receiveDll);
     initDll();
-    registerFwSegmentCountReceivedCallback(receiveSegmentCount);
+    //registerFwSegmentCountReceivedCallback(receiveSegmentCount);
     registerFwSegmentReceiveCallback(receiveFwSegment);
 
     while(1)
