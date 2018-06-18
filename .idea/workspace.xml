@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="135cfaeb-9d6d-4961-9144-1f492dedbc93" name="Default" comment="Read of EEprom">
+    <list default="true" id="135cfaeb-9d6d-4961-9144-1f492dedbc93" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainProject" beforeDir="false" afterPath="$PROJECT_DIR$/mainProject" afterDir="false" />
@@ -34,14 +34,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="211">
+              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="convert.bat" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mainProject/Config/convert.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainProject/external_libs/global.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+              <folding>
+                <element signature="e#894#921#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="md5.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainProject/external_libs/md5.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="193" column="23" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -50,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/mainProject/drivers/uart.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="197">
-              <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+              <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -59,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/mainProject/Config/transfer.bat">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -77,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/mainProject/Layers/appLayer.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-445">
-              <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+              <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -94,26 +124,8 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="boot.h" pinned="false" current-in-tab="false">
-        <entry file="file://C:/avr8-gnu-toolchain/avr/include/avr/boot.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9554">
-              <caret line="562" column="40" selection-start-line="562" selection-start-column="8" selection-end-line="562" selection-end-column="40" />
-              <folding>
-                <element signature="e#3798#3821#0" expanded="true" />
-                <element signature="e#3993#4124#0" expanded="true" />
-                <element signature="e#4240#4327#0" expanded="true" />
-                <element signature="e#4755#4782#0" expanded="true" />
-                <element signature="e#4839#4867#0" expanded="true" />
-                <element signature="e#23081#23512#0" expanded="true" />
-                <element signature="e#23939#24316#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -122,10 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>boot_page_fill</find>
-      <find>define boot_page_fill</find>
-      <find>__boot_page_fill_extended</find>
-      <find>Size</find>
       <find>SPM_PAGESIZE</find>
       <find>0x1806</find>
       <find>define boot_page_write</find>
@@ -152,6 +160,10 @@
       <find>firmwareBuffer</find>
       <find>sendReadyForFWUpload</find>
       <find>totalPageCount</find>
+      <find>256</find>
+      <find>totalSegmentCount</find>
+      <find>MD5Transform</find>
+      <find>uart</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,6 +185,7 @@
         <option value="$PROJECT_DIR$/mainProject/Layers/appLayer.h" />
         <option value="$PROJECT_DIR$/mainProject/Layers/appLayer.c" />
         <option value="$PROJECT_DIR$/mainProject/Config/transfer.bat" />
+        <option value="$PROJECT_DIR$/mainProject/Config/convert.bat" />
         <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
@@ -208,6 +221,11 @@
             <path>
               <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
               <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-release" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
               <item name="mainProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -215,12 +233,6 @@
               <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
               <item name="mainProject" type="462c0819:PsiDirectoryNode" />
               <item name="Config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
-              <item name="mainProject" type="462c0819:PsiDirectoryNode" />
-              <item name="Layers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -233,7 +245,7 @@
     <property name="SearchEverywhereHistoryKey" value="convertIn&#9;ACTION&#9;ConvertIndentsGroup" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-release" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mainProject/Config/convert.bat" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -253,8 +265,8 @@
   </component>
   <component name="RunManager" selected="Application.E6AMS_Bootloader">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="E6AMS_Bootloader" TARGET_NAME="E6AMS_Bootloader" CONFIG_NAME="Release" TEST_MODE="SUITE_TEST" />
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="E6AMS_Bootloader" RUN_TARGET_NAME="E6AMS_Bootloader.elf" EXPLICIT_BUILD_TARGET_NAME="all" />
-    <configuration name="E6AMS_Bootloader" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="E6AMS_Bootloader" TARGET_NAME="E6AMS_Bootloader" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="E6AMS_Bootloader" RUN_TARGET_NAME="E6AMS_Bootloader" />
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="E6AMS_Bootloader" RUN_TARGET_NAME="E6AMS_Bootloader" EXPLICIT_BUILD_TARGET_NAME="all" />
+    <configuration name="E6AMS_Bootloader" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="E6AMS_Bootloader" TARGET_NAME="E6AMS_Bootloader" CONFIG_NAME="Release" RUN_PATH="$PROJECT_DIR$/mainProject/Config/convert.bat" />
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +332,7 @@
       <workItem from="1529144029412" duration="18000" />
       <workItem from="1529144068016" duration="552000" />
       <workItem from="1529300589030" duration="1382000" />
-      <workItem from="1529302094799" duration="11197000" />
+      <workItem from="1529302094799" duration="16865000" />
     </task>
     <task id="LOCAL-00001" summary="Adds gitignore.">
       <created>1527252052925</created>
@@ -392,25 +404,32 @@
       <option name="project" value="LOCAL" />
       <updated>1529312931957</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cleanup">
+      <created>1529314546796</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1529314546796</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73226000" />
+    <option name="totallyTimeSpent" value="78894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.3278867" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3267974" />
       <window_info anchor="bottom" id="CMake" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
-      <window_info active="true" anchor="bottom" id="Inspection Results" visible="true" weight="0.32897604" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info anchor="bottom" id="Inspection Results" weight="0.32897604" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -450,25 +469,10 @@
     <MESSAGE value="cleanup" />
     <MESSAGE value="Read of EEprom" />
     <MESSAGE value="Update write to accomedate how the segments are actually transferred" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update write to accomedate how the segments are actually transferred" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="102" column="1" lean-forward="true" selection-start-line="102" selection-start-column="1" selection-end-line="102" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Layers/appLayer.h" />
-    <entry file="file://$PROJECT_DIR$/Layers/appLayer.c" />
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/avr8-gnu-toolchain/avr/include/avr/boot.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -730,41 +734,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainProject/Config/transfer.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainProject/drivers/uart.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
-          <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mainProject/Layers/appLayer.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-445">
-          <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+          <caret line="96" column="30" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/Config/transfer.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/Config/convert.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/external_libs/global.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#894#921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/external_libs/md5.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="193" column="23" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="211">
+          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/Config/convert.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

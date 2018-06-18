@@ -14,28 +14,26 @@
 #include "mainProject/Frames/appFrame.h"
 
 #define SEGMENT_PR_PAGE 4
-#define SEMENT_SIZE     64
-
 
 // objcopy
 // avr-objcopy -O ihex -R .eeprom E6AMS_bootloader E6AMS_bootloader.hex
 // find :00000001FF
 
 static inline void startApp(void);
-static void receiveSegmentCount(uint16_t segmentCount);
 static void receiveFwSegment(AppFrame * appframe);
 static void programPage(uint32_t page);
 
 static uint8_t firmwareBuffer[SPM_PAGESIZE] = {0};
 static uint8_t firmwareBufferIndex = 0;
 static uint16_t pageIndex = 0;
-static uint16_t totalSegmentCount = 0;
-static uint16_t totalPageCount = 0;
+static uint16_t expectedSegmentsToRcv = 0;
+static uint16_t totalSegmentRcv = 0;
 
 int main()
 {
     uartInit(0, 115200, 'O', 1, 8, 'N');
     sei();
+    uartSendString(0, "Starting bootloader\n");
     hm10Init(receiveDll);
     initDll();
     setFWUploadHandle(receiveFwSegment);
@@ -71,39 +69,40 @@ static inline void startApp(void)
     "ijmp       \n\t");
 }
 
-static void receiveSegmentCount(uint16_t segmentCount)
-{
-    totalSegmentCount = segmentCount;
-    uint16_t extraPage = ((segmentCount % SEGMENT_PR_PAGE) != 0 ? 1 : 0);
-    totalPageCount = ((segmentCount - (segmentCount % SEGMENT_PR_PAGE)) / SEGMENT_PR_PAGE) + extraPage;
-}
 
-static void receiveFwSegment(AppFrame* appframe)
-{
+static void receiveFwSegment(AppFrame* appframe) {
+
     if (appframe->cmd == FWSegCount) {
-        uint16_t segmentCount = (appframe->payload[0] << 8u) + appframe->payload[1];
-        receiveSegmentCount(segmentCount);
-        return;
+        expectedSegmentsToRcv = (appframe->payload[0] << 8u) + appframe->payload[1];
+        uartSendString(0, "Getting segments: ");
+        uartSendInteger(0, expectedSegmentsToRcv, 10);
+        uartSendString(0, "\n");
     } else if (appframe->cmd == FWSeg) {
+        ++totalSegmentRcv;
         // Copy the received data into the buffer
         memcpy(&firmwareBuffer[firmwareBufferIndex], appframe->payload, appframe->payloadLength);
         // Count up the buffer index
         firmwareBufferIndex += appframe->payloadLength;
-        // Convert from size to index
-        uint16_t totalPageIndex = totalPageCount-1;
 
-        if(((pageIndex % SEGMENT_PR_PAGE) == 3) || (pageIndex == totalPageIndex))
-        {
-            programPage((pageIndex * SPM_PAGESIZE));
+        if ((totalSegmentRcv % 4) == 0) {
+            // We've got too much data, write the page
+            programPage((pageIndex++ * SPM_PAGESIZE));
+            firmwareBufferIndex = 0;
+
+            if (totalSegmentRcv == expectedSegmentsToRcv) {
+                uartSendString(0, "Starting the program\n");
+                startApp();
+            }
         }
 
-        if(pageIndex == totalPageIndex)
-        {
+        if (totalSegmentRcv == expectedSegmentsToRcv) {
+            // We've got too much data, write the page
+            programPage((pageIndex++ * SPM_PAGESIZE));
+            firmwareBufferIndex = 0;
             uartSendString(0, "Starting the program\n");
             startApp();
         }
 
-        pageIndex++;
     } else {
         uartSendString(0, "I do not handle command ");
         uartSendInteger(0, appframe->cmd, 10);
@@ -119,12 +118,13 @@ static void programPage(uint32_t page)
     boot_page_erase_safe(page);
 
     for(uint16_t i = 0; i < SPM_PAGESIZE; i += 2) {
+        // Word in little endian!
         uint16_t word = 0;
 
         if (i < firmwareBufferIndex) {
             word = firmwareBuffer[i];
-            if (i+1 < firmwareBufferIndex) {
-                word = word + (firmwareBuffer[i+1] << 8u);
+            if (i + 1 < firmwareBufferIndex) {
+                word += (firmwareBuffer[i + 1] << 8u);
             }
         }
 
