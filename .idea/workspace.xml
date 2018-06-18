@@ -12,25 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="135cfaeb-9d6d-4961-9144-1f492dedbc93" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/appFrame.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/appFrame.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/dllFrame.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frames/dllFrame.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/appLayer.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/appLayer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/dllLayer.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Layers/dllLayer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/command.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/hm-10.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/hm-10.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/uart.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drivers/uart.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external_libs/global.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external_libs/md5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external_libs/md5.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -42,6 +24,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
   <component name="FavoritesManager">
     <favorites_list name="E6AMS_Bootloader" />
@@ -51,8 +36,23 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dllLayer.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainProject/Layers/dllLayer.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#89#108#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,8 +60,8 @@
       <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="561">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -151,21 +151,45 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1940" />
-    <option name="height" value="1060" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="938" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
+              <item name="mainProject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E6AMS_Bootloader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E6AMS-Bootloader" type="462c0819:PsiDirectoryNode" />
+              <item name="mainProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Layers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="convertIn&#9;ACTION&#9;ConvertIndentsGroup" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-release" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -184,8 +208,36 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.E6AMS_Bootloader">
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="E6AMS_Bootloader" TARGET_NAME="E6AMS_Bootloader" CONFIG_NAME="Release" TEST_MODE="SUITE_TEST" />
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="E6AMS_Bootloader" RUN_TARGET_NAME="E6AMS_Bootloader.elf" EXPLICIT_BUILD_TARGET_NAME="all" />
     <configuration name="E6AMS_Bootloader" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="E6AMS_Bootloader" TARGET_NAME="E6AMS_Bootloader" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="E6AMS_Bootloader" RUN_TARGET_NAME="E6AMS_Bootloader" />
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="E6AMS-Bootloader" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <list>
       <item itemvalue="Application.Build All" />
       <item itemvalue="Application.E6AMS_Bootloader" />
@@ -220,6 +272,11 @@
       <workItem from="1529134109745" duration="1088000" />
       <workItem from="1529138810642" duration="15000" />
       <workItem from="1529138854070" duration="776000" />
+      <workItem from="1529142739090" duration="955000" />
+      <workItem from="1529144029412" duration="18000" />
+      <workItem from="1529144068016" duration="552000" />
+      <workItem from="1529300589030" duration="1382000" />
+      <workItem from="1529302094799" duration="1528000" />
     </task>
     <task id="LOCAL-00001" summary="Adds gitignore.">
       <created>1527252052925</created>
@@ -274,22 +331,22 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59122000" />
+    <option name="totallyTimeSpent" value="63557000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24983476" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" auto_hide="true" x="-28" y="370" width="1513" height="214" id="Messages" order="7" visible="true" weight="0.28651685" />
-      <window_info anchor="bottom" id="CMake" order="7" weight="0.3286517" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3275862" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3272472" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3278867" />
+      <window_info anchor="bottom" id="CMake" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286517" />
-      <window_info id="Favorites" order="2" side_tool="true" weight="0.32980832" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32897604" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -327,7 +384,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Adds files from application project." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Frames/appFrame.h" />
     <entry file="file://$PROJECT_DIR$/Layers/dllLayer.c" />
     <entry file="file://$PROJECT_DIR$/drivers/uart.h" />
     <entry file="file://$PROJECT_DIR$/Frames/appFrame.c" />
@@ -588,15 +644,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="561">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/Layers/dllLayer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#89#108#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

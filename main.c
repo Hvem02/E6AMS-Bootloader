@@ -1,7 +1,10 @@
-#include <avr/boot.h>
-#include <avr/interrupt.h>
-#include <avr/io.h>
 #include <stdint-gcc.h>
+
+#include <avr/io.h>
+#include <avr/boot.h>
+#include <avr/eeprom.h>
+#include <avr/interrupt.h>
+
 #include <util/delay.h>
 
 #include "mainProject/Drivers/hm-10.h"
@@ -35,6 +38,9 @@ int main()
     initDll();
     //registerFwSegmentCountReceivedCallback(receiveSegmentCount);
     registerFwSegmentReceiveCallback(receiveFwSegment);
+
+//    eeprom_read_byte()
+
 
     while(1)
     {
