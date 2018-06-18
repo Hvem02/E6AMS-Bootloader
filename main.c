@@ -139,3 +139,11 @@ static void programPage(uint32_t page)
 
     SREG = sreg;
 }
+
+char cSREG;
+cSREG = SREG; /* store SREG value */
+/* disable interrupts during timed sequence */
+__disable_interrupt();
+EECR |= (1<<EEMPE); /* start EEPROM write */
+EECR |= (1<<EEPE);
+SREG = cSREG; /* restore SREG value (I-bit) */
