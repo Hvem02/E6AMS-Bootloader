@@ -37,11 +37,20 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+            <state relative-caret-position="428">
+              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uart.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mainProject/drivers/uart.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -67,7 +76,7 @@
       <file leaf-file-name="appLayer.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainProject/Layers/appLayer.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="-445">
               <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
             </state>
           </provider>
@@ -113,7 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>boot_page_fill_safe</find>
       <find>boot_page_fill</find>
       <find>define boot_page_fill</find>
       <find>__boot_page_fill_extended</find>
@@ -140,9 +148,10 @@
       <find>checkForFW</find>
       <find>receiveFwSegment</find>
       <find>Command</find>
-      <find>sendReadyForFWUpload</find>
-      <find>firmwareBuffer</find>
       <find>programPage</find>
+      <find>firmwareBuffer</find>
+      <find>sendReadyForFWUpload</find>
+      <find>totalPageCount</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -311,7 +320,7 @@
       <workItem from="1529144029412" duration="18000" />
       <workItem from="1529144068016" duration="552000" />
       <workItem from="1529300589030" duration="1382000" />
-      <workItem from="1529302094799" duration="9238000" />
+      <workItem from="1529302094799" duration="11197000" />
     </task>
     <task id="LOCAL-00001" summary="Adds gitignore.">
       <created>1527252052925</created>
@@ -376,11 +385,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529305758640</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update write to accomedate how the segments are actually transferred">
+      <created>1529312931957</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1529312931957</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71267000" />
+    <option name="totallyTimeSpent" value="73226000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -433,10 +449,10 @@
     <MESSAGE value="Adds files from application project." />
     <MESSAGE value="cleanup" />
     <MESSAGE value="Read of EEprom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read of EEprom" />
+    <MESSAGE value="Update write to accomedate how the segments are actually transferred" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update write to accomedate how the segments are actually transferred" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Frames/appFrame.h" />
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1734">
@@ -714,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainProject/Layers/appLayer.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mainProject/Config/transfer.bat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -735,10 +744,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/drivers/uart.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="27" column="56" lean-forward="true" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainProject/Layers/appLayer.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-445">
+          <caret line="96" column="30" lean-forward="true" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state relative-caret-position="428">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

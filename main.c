@@ -74,8 +74,8 @@ static inline void startApp(void)
 static void receiveSegmentCount(uint16_t segmentCount)
 {
     totalSegmentCount = segmentCount;
-    uint16_t ekstraPage = ((segmentCount % SEGMENT_PR_PAGE) != 0 ? 1 : 0);
-    totalPageCount = ((segmentCount - (segmentCount % SEGMENT_PR_PAGE)) / SEGMENT_PR_PAGE) + ekstraPage;
+    uint16_t extraPage = ((segmentCount % SEGMENT_PR_PAGE) != 0 ? 1 : 0);
+    totalPageCount = ((segmentCount - (segmentCount % SEGMENT_PR_PAGE)) / SEGMENT_PR_PAGE) + extraPage;
 }
 
 static void receiveFwSegment(AppFrame* appframe)
@@ -85,14 +85,19 @@ static void receiveFwSegment(AppFrame* appframe)
         receiveSegmentCount(segmentCount);
         return;
     } else if (appframe->cmd == FWSeg) {
+        // Copy the received data into the buffer
         memcpy(&firmwareBuffer[firmwareBufferIndex], appframe->payload, appframe->payloadLength);
+        // Count up the buffer index
+        firmwareBufferIndex += appframe->payloadLength;
+        // Convert from size to index
+        uint16_t totalPageIndex = totalPageCount-1;
 
-        if(((pageIndex % SEGMENT_PR_PAGE) == 3) || (pageIndex == (totalPageCount -1)))
+        if(((pageIndex % SEGMENT_PR_PAGE) == 3) || (pageIndex == totalPageIndex))
         {
             programPage((pageIndex * SPM_PAGESIZE));
         }
 
-        if(pageIndex == (totalPageCount -1))
+        if(pageIndex == totalPageIndex)
         {
             uartSendString(0, "Starting the program\n");
             startApp();
