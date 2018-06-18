@@ -37,10 +37,11 @@ int main()
     hm10Init(receiveDll);
     initDll();
     //registerFwSegmentCountReceivedCallback(receiveSegmentCount);
-    registerFwSegmentReceiveCallback(receiveFwSegment);
+    setFWUploadHandle(receiveFwSegment);
 
-//    eeprom_read_byte()
+    uint8_t fwUploadFlag = eeprom_read_byte((uint8_t *) FW_UPLOAD_FLAG);
 
+    if (fwUploadFlag == 1)
 
     while(1)
     {
