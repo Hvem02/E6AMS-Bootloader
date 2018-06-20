@@ -1,63 +1,58 @@
-#include <stdint-gcc.h>
-
-#include <avr/io.h>
 #include <avr/boot.h>
 #include <avr/eeprom.h>
 #include <avr/interrupt.h>
-
-#include <util/delay.h>
+#include <avr/io.h>
+#include <stdint-gcc.h>
 #include <string.h>
+#include <util/delay.h>
 
-#include "mainProject/Drivers/hm-10.h"
-#include "mainProject/Layers/appLayer.h"
-#include "mainProject/Layers/dllLayer.h"
-#include "mainProject/Frames/appFrame.h"
+#include <avr/pgmspace.h>
 
-#define SEGMENT_PR_PAGE 4
+
+#include "drivers/eepromFirmware.h"
+
+#define SEGMENT_PER_PAGE 4
+
+#define APP_AREA_ADDRESS    0x00000u
+#define APP_AREA_SIZE       0x1F000u
+#define TEMP_AREA_ADDRESS   0x1F000u
+#define TEMP_AREA_SIZE      0x1F000u
 
 // objcopy
 // avr-objcopy -O ihex -R .eeprom E6AMS_bootloader E6AMS_bootloader.hex
 // find :00000001FF
 
-static inline void startApp(void);
-static void receiveFwSegment(AppFrame * appframe);
-static void programPage(uint32_t page);
+static uint8_t const * const tempPtr PROGMEM = (uint8_t*)0x1F000u;
 
-static uint8_t firmwareBuffer[SPM_PAGESIZE] = {0};
-static uint8_t firmwareBufferIndex = 0;
-static uint16_t pageIndex = 0;
-static uint16_t expectedSegmentsToRcv = 0;
-static uint16_t totalSegmentRcv = 0;
+static inline void startApp(void);
+
+static void eepromToFlash(FirmwareFlags flags);
+static void flashToFlash(FirmwareFlags flags);
+
+static void readPage(uint32_t page, uint8_t * buffer);
+static void programPage(uint32_t page, uint8_t * buffer);
+
+static void switchPageEndianness(uint8_t* buffer);
 
 int main()
 {
-    uartInit(0, 115200, 'O', 1, 8, 'N');
-    sei();
-    uartSendString(0, "Starting bootloader\n");
-    hm10Init(receiveDll);
-    initDll();
-    setFWUploadHandle(receiveFwSegment);
-
-    uint8_t fwUploadFlag = eeprom_read_byte((uint8_t *) FW_UPLOAD_FLAG);
-
-    if (fwUploadFlag == FW_UPLOAD_READY) {
-        // We are in the progress of updating the firmware
-        // Reset the flag
-        eeprom_update_byte((uint8_t *) FW_UPLOAD_FLAG, 0);
-        // Send message to host of ready for firmware upload
-        sendReadyForFWUpload();
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmissing-noreturn"
-        while(1)
-        {
-            _delay_ms(12);
-            checkForFW();
-        }
-#pragma clang diagnostic pop
-    } else {
-        // No need to fw upload, start the app instead
+    FirmwareFlags flags = readFirmwareFlags();
+    if(flags.newFirmwareFlag == 0)
+    {
         startApp();
+    }
+    else if(flags.newFirmwareFlag == 1 && flags.lastPageFlag == 0)
+    {
+        // Read from EEPROM and program area 2.
+        eepromToFlash(flags);
+        startApp();
+    }
+    else if(flags.newFirmwareFlag == 1 && flags.lastPageFlag == 1)
+    {
+        // Copy from area 2. into area 1.
+        flashToFlash(flags);
+        // TODO: How to read?
+
     }
 }
 
@@ -69,70 +64,54 @@ static inline void startApp(void)
     "ijmp       \n\t");
 }
 
-
-static void receiveFwSegment(AppFrame* appframe) {
-
-    if (appframe->cmd == FWSegCount) {
-        expectedSegmentsToRcv = (appframe->payload[0] << 8u) + appframe->payload[1];
-        uartSendString(0, "Getting segments: ");
-        uartSendInteger(0, expectedSegmentsToRcv, 10);
-        uartSendString(0, "\n");
-    } else if (appframe->cmd == FWSeg) {
-        ++totalSegmentRcv;
-        // Copy the received data into the buffer
-        memcpy(&firmwareBuffer[firmwareBufferIndex], appframe->payload, appframe->payloadLength);
-        // Count up the buffer index
-        firmwareBufferIndex += appframe->payloadLength;
-
-        if ((totalSegmentRcv % 4) == 0) {
-            // We've got too much data, write the page
-            programPage((pageIndex++ * SPM_PAGESIZE));
-            firmwareBufferIndex = 0;
-
-            if (totalSegmentRcv == expectedSegmentsToRcv) {
-                uartSendString(0, "Starting the program\n");
-                startApp();
-            }
-        }
-
-        if (totalSegmentRcv == expectedSegmentsToRcv) {
-            // We've got too much data, write the page
-            programPage((pageIndex++ * SPM_PAGESIZE));
-            firmwareBufferIndex = 0;
-            uartSendString(0, "Starting the program\n");
-            startApp();
-        }
-
-    } else {
-        uartSendString(0, "I do not handle command ");
-        uartSendInteger(0, appframe->cmd, 10);
-        uartSendByte(0, '\n');
+static void eepromToFlash(FirmwareFlags flags)
+{
+    uint8_t buffer[PAGE_SIZE] = {0};
+    for(uint8_t i = 0; i < flags.pageCount; i++)
+    {
+        readDataPage(i, buffer);
+        programPage(TEMP_AREA_ADDRESS + (PAGE_SIZE * flags.pageIndex) + (PAGE_SIZE * i), buffer);
     }
+    flags.pageIndex += flags.pageCount;
+    writeFirmwareFlags(flags);
 }
 
-static void programPage(uint32_t page)
+static void flashToFlash(FirmwareFlags flags)
+{
+    uint8_t buffer[PAGE_SIZE] = {0};
+    // Copy to buffer
+    memcpy(buffer, &tempPtr[0 + (flags.pageIndex * PAGE_SIZE)], PAGE_SIZE);
+
+    switchPageEndianness(buffer);
+
+
+
+}
+
+static void readPage(uint32_t page, uint8_t * buffer)
+{
+    uint8_t sreg = SREG;
+    cli();
+
+
+}
+
+static void programPage(uint32_t page, uint8_t * buffer)
 {
     uint8_t sreg = SREG;
     cli();
 
     boot_page_erase_safe(page);
 
-    for(uint16_t i = 0; i < SPM_PAGESIZE; i += 2) {
-        // Word in little endian!
-        uint16_t word = 0;
-
-        if (i < firmwareBufferIndex) {
-            word = firmwareBuffer[i];
-            if (i + 1 < firmwareBufferIndex) {
-                word += (firmwareBuffer[i + 1] << 8u);
-            }
-        }
+    for(uint16_t i = 0; i < SPM_PAGESIZE; i += 2)
+    {
+        uint16_t word = *buffer;
+        buffer++;
+        word = word + (*buffer << 8);
+        buffer++;
 
         boot_page_fill_safe(page + i, word);
     }
-
-    firmwareBufferIndex = 0;
-
     boot_page_write_safe(page);
 
     boot_rww_enable_safe();
@@ -140,10 +119,13 @@ static void programPage(uint32_t page)
     SREG = sreg;
 }
 
-char cSREG;
-cSREG = SREG; /* store SREG value */
-/* disable interrupts during timed sequence */
-__disable_interrupt();
-EECR |= (1<<EEMPE); /* start EEPROM write */
-EECR |= (1<<EEPE);
-SREG = cSREG; /* restore SREG value (I-bit) */
+static void switchPageEndianness(uint8_t* buffer)
+{
+    uint8_t temp = 0;
+    for(uint8_t i = 0; i < SPM_PAGESIZE; i += 2)
+    {
+        temp = buffer[i];
+        buffer[i] = buffer[i + 1];
+        buffer[i + 1] = temp;
+    }
+}
